@@ -1,4 +1,5 @@
 site_name: todo-const Documentation
+site_url: https://RafaelDeps.github.io/todo_const/
 theme:
   name: material
   language: en
@@ -19,6 +20,17 @@ plugins:
         - locale: pt
           name: Português
           build: true
+          nav_translations:
+            Home: Início
+            Constitution: Constituição
+            Specify: Specify
+            Overview: Visão Geral
+            Templates: Modelos
+            Checklist: Checklist
+            Plan: Plano
+            Spec: Especificação
+            Tasks: Tarefas
+      reconfigure_material: true
       fallback_to_default: true
 
 nav:
