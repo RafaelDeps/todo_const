@@ -67,13 +67,9 @@
 
 ### Edge Cases
 
-<!--
-  ACTION REQUIRED: The content in this section represents placeholders.
-  Fill them out with the right edge cases.
--->
-
-- What happens when [boundary condition]?
-- How does system handle [error scenario]?
+- What happens when the JSON storage file is missing or corrupted? (Resilience Principle)
+- How does the system handle invalid JSON data? (Resilience Principle)
+- Are user-facing error messages friendly and non-technical? (UX Principle)
 
 ## Requirements *(mandatory)*
 

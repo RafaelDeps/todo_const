@@ -49,8 +49,8 @@ description: "Task list template for feature implementation"
 **Purpose**: Project initialization and basic structure
 
 - [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T002 Initialize Python project (venv, requirements.txt)
+- [ ] T003 [P] Configure Flake8/Black and Mypy for PEP 8 and Type Hint enforcement
 
 ---
 
@@ -60,14 +60,10 @@ description: "Task list template for feature implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-Examples of foundational tasks (adjust based on your project):
-
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Implement base JSON storage service with I/O resilience
+- [ ] T005 [P] Setup centralized error handling for user-friendly messages
+- [ ] T006 Setup logging infrastructure (internal only)
+- [ ] T007 Create base models with mandatory Type Hints (snake_case)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

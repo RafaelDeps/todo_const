@@ -1,50 +1,68 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.0.0 → 1.0.0
+- List of modified principles:
+  - [PRINCIPLE_1_NAME] → I. Strictly Python Stack
+  - [PRINCIPLE_2_NAME] → II. Local JSON Persistence
+  - [PRINCIPLE_3_NAME] → III. Code Quality & Standards
+  - [PRINCIPLE_4_NAME] → IV. Resilience & I/O Integrity
+  - [PRINCIPLE_5_NAME] → V. User-Centric UX & Error Handling
+- Added sections: Development Constraints, Development Workflow
+- Removed sections: None
+- Templates requiring updates (✅ updated / ⚠ pending):
+  - .specify/templates/plan-template.md (✅ updated)
+  - .specify/templates/spec-template.md (✅ updated)
+  - .specify/templates/tasks-template.md (✅ updated)
+- Follow-up TODOs: None
+-->
+
+# todo-const Constitution
+<!-- Non-negotiable rules and standards for the todo-const project -->
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Strictly Python Stack
+The project must be implemented exclusively using Python. No other programming languages are permitted for core logic or implementation.
+**Rationale**: Ensures a consistent development environment, simplifies dependency management, and aligns with the team's expertise.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Local JSON Persistence
+Data persistence must rely solely on local JSON files. Use of SQL databases (SQLite, PostgreSQL, etc.) or NoSQL databases (MongoDB, Redis, etc.) is strictly prohibited.
+**Rationale**: Prioritizes portability, simplicity, and ease of inspection without requiring external database servers or complex drivers.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Code Quality & Standards
+All Python code must adhere to PEP 8 standards. The use of Type Hints is mandatory for all function signatures and public APIs. Naming conventions must strictly follow snake_case.
+**Rationale**: Maintains high code readability, ensures type safety during development, and follows idiomatic Python practices.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Resilience & I/O Integrity
+Robust error handling must be implemented for all I/O operations. The application must handle scenarios where files are missing, corrupted, or inaccessible without crashing.
+**Rationale**: Guarantees system reliability and prevents data loss or unexpected termination in unstable environments.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. User-Centric UX & Error Handling
+User-facing messages must be friendly and helpful. Technical error details, stack traces, and internal exceptions must never be displayed to the end-user.
+**Rationale**: Provides a professional user experience and prevents exposing internal system details for security and clarity.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Development Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Technology Stack & Compliance
+- **Primary Language**: Python (strictly)
+- **Data Format**: JSON (strictly)
+- **Style Guide**: PEP 8
+- **Type Safety**: Mandatory Type Hints
+- **Naming**: snake_case for all identifiers
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Quality Gates
+1. **Linting Check**: Must pass PEP 8 compliance.
+2. **Type Check**: Must pass static type analysis (e.g., mypy).
+3. **Resilience Check**: I/O operations must be wrapped in appropriate try/except blocks with user-friendly error messages.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution defines the non-negotiable standards for todo-const. Amendments require documentation and a version bump.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Amendment Procedure
+1. Propose changes in a new version of the constitution.
+2. Update dependent templates (`.specify/templates/*`).
+3. Ratify the new version and update the `LAST_AMENDED_DATE`.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-05-17 | **Last Amended**: 2026-05-17

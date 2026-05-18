@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <h2>Add New Task</h2>
+    <form action="{{ url_for('add_task') }}" method="POST">
+        <label for="title">Title (required):</label>
+        <input type="text" id="title" name="title" required maxlength="100">
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="3"></textarea>
+        
+        <label for="reminder_at">Reminder (Optional):</label>
+        <input type="datetime-local" id="reminder_at" name="reminder_at">
+        
+        <button type="submit">Add Task</button>
+    </form>
+</section>
+
+<section>
+    <h2>Your Tasks</h2>
+    {% if tasks %}
+        <ul class="task-list">
+        {% for task in tasks %}
+            <li class="task-item" data-reminder="{{ task.reminder_at or '' }}" data-status="{{ task.status }}" data-title="{{ task.title }}">
+                <div class="task-info">
+                    <h3 style="text-decoration: {{ 'line-through' if task.status == 'done' else 'none' }}">{{ task.title }}</h3>
+                    {% if task.description %}
+                        <p>{{ task.description }}</p>
+                    {% endif %}
+                    {% if task.reminder_at %}
+                        <small>Reminder: {{ task.reminder_at }}</small>
+                    {% endif %}
+                </div>
+                <div class="task-actions">
+                    <form action="{{ url_for('toggle_task', task_id=task.id) }}" method="POST" style="padding:0; margin:0; box-shadow:none; border:none; background:transparent;">
+                        <button type="submit">{{ 'Mark Pending' if task.status == 'done' else 'Mark Done' }}</button>
+                    </form>
+                    
+                    <button type="button" onclick="document.getElementById('edit-{{ task.id }}').style.display='block'">Edit</button>
+                    
+                    <form action="{{ url_for('delete_task', task_id=task.id) }}" method="POST" style="padding:0; margin:0; box-shadow:none; border:none; background:transparent;">
+                        <button type="submit" class="btn-danger">Delete</button>
+                    </form>
+                </div>
+            </li>
+            
+            <div id="edit-{{ task.id }}" style="display:none; background: #eee; padding: 10px; margin-bottom: 10px;">
+                <form action="{{ url_for('update_task', task_id=task.id) }}" method="POST">
+                    <input type="text" name="title" value="{{ task.title }}" required>
+                    <textarea name="description">{{ task.description }}</textarea>
+                    <input type="datetime-local" name="reminder_at" value="{{ task.reminder_at or '' }}">
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="document.getElementById('edit-{{ task.id }}').style.display='none'">Cancel</button>
+                </form>
+            </div>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks found. Add one above!</p>
+    {% endif %}
+</section>
+{% endblock %}

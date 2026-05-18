@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>TODO List</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('export_tasks') }}">Export</a>
+            <a href="{{ url_for('import_tasks_view') }}">Import</a>
+        </nav>
+    </header>
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- In-App Notification Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskElements = document.querySelectorAll('.task-item[data-reminder]');
+            
+            taskElements.forEach(el => {
+                const reminderTime = el.getAttribute('data-reminder');
+                if (reminderTime) {
+                    const scheduledTime = new Date(reminderTime).getTime();
+                    const now = new Date().getTime();
+                    const delay = scheduledTime - now;
+                    const status = el.getAttribute('data-status');
+
+                    if (delay > 0 && status !== 'done') {
+                        setTimeout(() => {
+                            const title = el.getAttribute('data-title');
+                            alert('Reminder: ' + title);
+                            // Highlight the element visually
+                            el.style.border = '2px solid red';
+                        }, delay);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

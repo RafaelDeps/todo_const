@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <h2>Import Tasks</h2>
+    <p>Upload a <code>tasks.json</code> file to restore or merge your tasks.</p>
+    
+    <form action="{{ url_for('import_tasks_view') }}" method="POST" enctype="multipart/form-data">
+        <div style="margin-bottom: 1rem;">
+            <label for="file">JSON File:</label><br>
+            <input type="file" id="file" name="file" accept=".json" required>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+            <label>Mode:</label><br>
+            <label>
+                <input type="radio" name="mode" value="merge" checked>
+                Smart Merge (Add new, ignore duplicates by title and time)
+            </label><br>
+            <label>
+                <input type="radio" name="mode" value="replace">
+                Replace (Delete all current tasks and replace with imported file)
+            </label>
+        </div>
+        
+        <button type="submit">Import</button>
+    </form>
+</section>
+{% endblock %}
