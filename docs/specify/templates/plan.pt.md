@@ -1,15 +1,15 @@
-# Implementation Plan: [FEATURE]
+# Plano de Implementação: [FEATURE]
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+**Branch**: `[###-nome-da-feature]` | **Data**: [DATA] | **Spec**: [link]
+**Entrada**: Especificação da feature de `/specs/[###-nome-da-feature]/spec.md`
 
-**Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/plan-template.md` for the execution workflow.
+**Nota**: Este modelo é preenchido pelo comando `/speckit.plan`.
 
-## Summary
+## Resumo
 
-[Extract from feature spec: primary requirement + technical approach from research]
+[Extraído da especificação da feature: requisito principal + abordagem técnica da pesquisa]
 
-## Technical Context
+## Contexto Técnico
 
 <!--
   ACTION REQUIRED: Replace the content in this section with the technical details

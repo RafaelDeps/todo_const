@@ -8,6 +8,15 @@ theme:
     primary: indigo
     accent: indigo
 
+extra:
+  alternate:
+    - name: English
+      link: /todo_const/
+      lang: en
+    - name: Português
+      link: /todo_const/pt/
+      lang: pt
+
 plugins:
   - search
   - i18n:
@@ -22,28 +31,29 @@ plugins:
           build: true
           nav_translations:
             Home: Início
-            Constitution: Constituição
+            Project Constitution: Constituição do Projeto
             Specify: Specify
             Overview: Visão Geral
             Templates: Modelos
-            Checklist: Checklist
-            Plan: Plano
-            Spec: Especificação
-            Tasks: Tarefas
+            Template Checklist: Checklist (Modelo)
+            Template Constitution: Constituição (Modelo)
+            Template Plan: Plano (Modelo)
+            Template Spec: Especificação (Modelo)
+            Template Tasks: Tarefas (Modelo)
       reconfigure_material: true
       fallback_to_default: true
 
 nav:
   - Home: index.md
-  - Constitution: constitution.md
+  - Project Constitution: constitution.md
   - Specify:
       - Overview: specify/overview.md
       - Templates:
-          - Checklist: specify/templates/checklist.md
-          - Constitution: specify/templates/constitution.md
-          - Plan: specify/templates/plan.md
-          - Spec: specify/templates/spec.md
-          - Tasks: specify/templates/tasks.md
+          - Template Checklist: specify/templates/checklist.md
+          - Template Constitution: specify/templates/constitution.md
+          - Template Plan: specify/templates/plan.md
+          - Template Spec: specify/templates/spec.md
+          - Template Tasks: specify/templates/tasks.md
 
 markdown_extensions:
   - admonition

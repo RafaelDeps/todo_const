@@ -1,11 +1,9 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Constituição: [NOME DO PROJETO]
 
-## Core Principles
+## Princípios Fundamentais
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
+### [NOME_DO_PRINCIPIO_1]
+[DESCRIÇÃO_DO_PRINCIPIO_1]
 <!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
 
 ### [PRINCIPLE_2_NAME]
