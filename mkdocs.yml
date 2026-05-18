@@ -36,8 +36,6 @@ plugins:
             Specification: Especificação
             Plan: Plano
             Tasks: Tarefas
-            Specify: Specify
-            Overview: Visão Geral
       reconfigure_material: true
       fallback_to_default: true
 
@@ -48,8 +46,6 @@ nav:
       - Specification: project/001-todo-list-core/spec.md
       - Plan: project/001-todo-list-core/plan.md
       - Tasks: project/001-todo-list-core/tasks.md
-  - Specify:
-      - Overview: specify/overview.md
 
 markdown_extensions:
   - admonition
