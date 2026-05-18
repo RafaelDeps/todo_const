@@ -1,0 +1,40 @@
+site_name: todo-const Documentation
+theme:
+  name: material
+  language: en
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+
+plugins:
+  - search
+  - i18n:
+      default_language: en
+      languages:
+        en:
+          name: English
+          build: true
+        pt:
+          name: Português
+          build: true
+      fallback_to_default: true
+
+nav:
+  - Home: index.md
+  - Constitution: constitution.md
+  - Specify:
+      - Overview: specify/overview.md
+      - Templates:
+          - Checklist: specify/templates/checklist.md
+          - Constitution: specify/templates/constitution.md
+          - Plan: specify/templates/plan.md
+          - Spec: specify/templates/spec.md
+          - Tasks: specify/templates/tasks.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
