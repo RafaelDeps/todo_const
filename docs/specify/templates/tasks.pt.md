@@ -3,15 +3,19 @@
 description: "Task list template for feature implementation"
 ---
 
-# Tarefas: [NOME DA FEATURE]
+# Tasks: [FEATURE NAME]
 
-**Entrada**: Documentos de design de `/specs/[###-nome-da-feature]/`
-**Pré-requisitos**: plan.md (obrigatório), spec.md (obrigatório), research.md, data-model.md, contracts/
+**Input**: Design documents from `/specs/[###-feature-name]/`
+**Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-## Formato: `[ID] [P?] [Story] Descrição`
+**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
-- **[P]**: Pode rodar em paralelo
-- **[Story]**: A qual história de usuário esta tarefa pertence (ex: US1, US2, US3)
+**Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
+
+## Format: `[ID] [P?] [Story] Description`
+
+- **[P]**: Can run in parallel (different files, no dependencies)
+- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
 - Include exact file paths in descriptions
 
 ## Path Conventions

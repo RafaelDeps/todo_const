@@ -1,11 +1,11 @@
-# Especificação da Feature: [NOME DA FEATURE]
+# Feature Specification: [FEATURE NAME]
 
-**Branch da Feature**: `[###-nome-da-feature]`  
-**Criado**: [DATA]  
-**Status**: Rascunho  
-**Entrada**: Descrição do usuário: "$ARGUMENTS"
+**Feature Branch**: `[###-feature-name]`  
+**Created**: [DATE]  
+**Status**: Draft  
+**Input**: User description: "$ARGUMENTS"
 
-## Cenários de Usuário e Testes *(obrigatório)*
+## User Scenarios & Testing *(mandatory)*
 
 <!--
   IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
