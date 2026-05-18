@@ -1,71 +1,71 @@
-# Implementation Plan: TODO List Core Features
+# Plano de Implementação: Funcionalidades Core do TODO List
 
-**Branch**: `001-todo-list-core-001` | **Date**: 2026-05-17 | **Spec**: [specs/001-todo-list-core/spec.md](spec.md)
+**Branch**: `001-todo-list-core-001` | **Data**: 2026-05-17 | **Spec**: [spec.md](spec.md)
 
-## Summary
-Implement a local TODO list application using a Python/Flask MVC architecture. The system supports CRUD operations, a browser-based reminder system, and JSON data portability, strictly adhering to local file persistence and non-technical error handling.
+## Resumo
+Implementar uma aplicação de lista de tarefas local usando uma arquitetura MVC em Python/Flask. O sistema suporta operações CRUD, um sistema de lembretes baseado em navegador e portabilidade de dados JSON, aderindo estritamente à persistência de arquivos locais e ao tratamento de erros não técnicos.
 
-## Technical Context
+## Contexto Técnico
 
-**Language/Version**: Python 3.10+  
-**Primary Dependencies**: Flask (Controller), Jinja2 (View), Standard `json` library (Model)  
-**Storage**: Local JSON files (`tasks.json`)  
-**Testing**: pytest  
-**Target Platform**: Linux/macOS/Windows (Python-compatible)
-**Project Type**: Web Application (MVC / SSR)  
-**Performance Goals**: N/A
-**Constraints**: PEP 8, Type Hints, I/O resilience, friendly UX, No complex JS  
-**Scale/Scope**: Local todo management
+**Linguagem/Versão**: Python 3.10+  
+**Principais Dependências**: Flask (Controller), Jinja2 (View), Biblioteca padrão `json` (Model)  
+**Armazenamento**: Arquivos JSON locais (`tasks.json`)  
+**Testes**: pytest  
+**Plataforma Alvo**: Linux/macOS/Windows (compatível com Python)
+**Tipo de Projeto**: Aplicação Web (MVC / SSR)  
+**Metas de Desempenho**: N/A
+**Restrições**: PEP 8, Type Hints, resiliência de I/O, UX amigável, Sem JS complexo  
+**Escala/Escopo**: Gerenciamento de tarefas local
 
-## Constitution Check
+## Verificação da Constituição
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+*PORTÃO: Deve passar antes da pesquisa da Fase 0. Re-verificar após o design da Fase 1.*
 
-- [x] **Principle I (Python)**: Implementation strictly in Python/Flask.
-- [x] **Principle II (JSON)**: Persistence only via local JSON files.
-- [x] **Principle III (Quality)**: PEP 8, Type Hints, and snake_case required.
-- [x] **Principle IV (Resilience)**: I/O errors handled gracefully in the Model.
-- [x] **Principle V (UX)**: Technical errors hidden from Web UI; friendly messages used.
+- [x] **Princípio I (Python)**: Implementação estritamente em Python/Flask.
+- [x] **Princípio II (JSON)**: Persistência apenas via arquivos JSON locais.
+- [x] **Principle III (Qualidade)**: PEP 8, Type Hints e snake_case obrigatórios.
+- [x] **Princípio IV (Resiliência)**: Erros de I/O tratados graciosamente no Model.
+- [x] **Princípio V (UX)**: Erros técnicos ocultos da interface Web; mensagens amigáveis utilizadas.
 
-## Project Structure
+## Estrutura do Projeto
 
-### Documentation (this feature)
+### Documentação (desta funcionalidade)
 
 ```text
 specs/001-todo-list-core/
-├── plan.md              # This file
-├── research.md          # Implementation decisions
-├── data-model.md        # JSON schema and entity definitions
-├── quickstart.md        # Dev setup and usage
-├── contracts/           # API and UI Route definitions
+├── plan.md              # Este arquivo
+├── research.md          # Decisões de implementação
+├── data-model.md        # Esquema JSON e definições de entidades
+├── quickstart.md        # Configuração de dev e uso
+├── contracts/           # Definições de API e Rotas de UI
 │   └── api.md
-└── tasks.md             # Implementation tasks
+└── tasks.md             # Tarefas de implementação
 ```
 
-### Source Code (repository root)
+### Código Fonte (raiz do repositório)
 
 ```text
 src/
-├── app.py               # Flask application entry point (Controller)
+├── app.py               # Ponto de entrada da aplicação Flask (Controller)
 ├── models/
-│   └── task.py          # Task entity and JSON I/O (Model)
-├── templates/           # Jinja2 HTML files (View)
+│   └── task.py          # Entidade Task e I/O JSON (Model)
+├── templates/           # Arquivos HTML Jinja2 (View)
 │   ├── base.html
 │   ├── index.html
 │   └── import.html
-├── static/              # CSS files
+├── static/              # Arquivos CSS
 │   └── style.css
 └── utils/
-    └── helpers.py       # Validation and formatting
+    └── helpers.py       # Validação e formatação
 
 tests/
-├── unit/                # Model and validation tests
-├── integration/         # Flask route tests
-└── conftest.py          # Pytest fixtures
+├── unit/                # Testes de Model e validação
+├── integration/         # Testes de rotas Flask
+└── conftest.py          # Fixtures do Pytest
 ```
 
-## Complexity Tracking
+## Rastreamento de Complexidade
 
-| Violation | Why Needed | Simpler Alternative Rejected Because |
+| Violação | Por que é necessária | Alternativa mais simples rejeitada porque |
 |-----------|------------|-------------------------------------|
-| None | N/A | N/A |
+| Nenhuma | N/A | N/A |

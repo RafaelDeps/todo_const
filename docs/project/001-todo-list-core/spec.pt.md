@@ -1,110 +1,110 @@
-# Feature Specification: TODO List Core Features
+# Especificação da Feature: Funcionalidades Core do TODO List
 
-**Feature Branch**: `001-todo-list-core-001`  
-**Created**: 2026-05-17  
-**Status**: Draft  
-**Input**: User description: "Crie a especificação para um TODO List com: 1. CRUD de tarefas (Título/Descrição). 2. Sistema de lembretes por data/hora. 3. Função de Importar/Exportar dados."
+**Branch da Feature**: `001-todo-list-core-001`  
+**Criado**: 2026-05-17  
+**Status**: Rascunho  
+**Entrada**: Descrição do usuário: "Crie a especificação para um TODO List com: 1. CRUD de tarefas (Título/Descrição). 2. Sistema de lembretes por data/hora. 3. Função de Importar/Exportar dados."
 
-## User Scenarios & Testing *(mandatory)*
+## Cenários de Usuário e Testes *(obrigatório)*
 
-### User Story 1 - Task Management (Priority: P1)
+### História de Usuário 1 - Gerenciamento de Tarefas (Prioridade: P1)
 
-As a user, I want to create, view, update, and delete tasks so that I can organize my daily activities.
+Como usuário, desejo criar, visualizar, atualizar e excluir tarefas para que eu possa organizar minhas atividades diárias.
 
-**Why this priority**: Core functionality of the application; without CRUD, other features have no context.
+**Por que esta prioridade**: Funcionalidade principal da aplicação; sem o CRUD, as outras funcionalidades não fazem sentido.
 
-**Independent Test**: Can be tested by creating a task, verifying its presence, updating its content, and finally deleting it.
+**Teste Independente**: Pode ser testado criando uma tarefa, verificando sua presença, atualizando seu conteúdo e, por fim, excluindo-a.
 
-**Acceptance Scenarios**:
+**Cenários de Aceitação**:
 
-1. **Given** an empty task list, **When** I create a task with title "Buy groceries" and description "Milk and eggs", **Then** the task should appear in my list.
-2. **Given** a task "Buy groceries", **When** I update its title to "Buy organic groceries", **Then** the list should reflect the new title.
-3. **Given** a task "Buy organic groceries", **When** I delete it, **Then** it should no longer be visible in my list.
-
----
-
-### User Story 2 - Task Reminders (Priority: P2)
-
-As a user, I want to set a specific date and time for a task reminder so that I don't forget important deadlines.
-
-**Why this priority**: Enhances the utility of the TODO list by adding time-awareness.
-
-**Independent Test**: Can be tested by setting a reminder for a task and verifying that the reminder data is stored and displayed correctly.
-
-**Acceptance Scenarios**:
-
-1. **Given** a task "Doctor appointment", **When** I set a reminder for tomorrow at 10:00 AM, **Then** the task should show the scheduled reminder time.
-2. **Given** a task with a reminder, **When** I remove the reminder, **Then** the task should no longer have an associated time.
+1. **Dado** uma lista de tarefas vazia, **Quando** eu crio uma tarefa com título "Comprar mantimentos" e descrição "Leite e ovos", **Então** a tarefa deve aparecer na minha lista.
+2. **Dado** uma tarefa "Comprar mantimentos", **Quando** eu atualizo seu título para "Comprar mantimentos orgânicos", **Então** a lista deve refletir o novo título.
+3. **Dado** uma tarefa "Comprar mantimentos orgânicos", **Quando** eu a excluo, **Então** ela não deve mais estar visível na minha lista.
 
 ---
 
-### User Story 3 - Data Import/Export (Priority: P3)
+### História de Usuário 2 - Lembretes de Tarefa (Prioridade: P2)
 
-As a user, I want to export my tasks to a file and import them back so that I can backup my data or move it between devices.
+Como usuário, desejo definir uma data e hora específica para um lembrete de tarefa para que eu não esqueça prazos importantes.
 
-**Why this priority**: Provides data portability and resilience against local data loss.
+**Por que esta prioridade**: Aumenta a utilidade da lista de tarefas adicionando consciência temporal.
 
-**Independent Test**: Can be tested by exporting a list of tasks, deleting the local data, and then importing the file to restore the list.
+**Teste Independente**: Pode ser testado definindo um lembrete para uma tarefa e verificando se os dados do lembrete são armazenados e exibidos corretamente.
 
-**Acceptance Scenarios**:
+**Cenários de Aceitação**:
 
-1. **Given** a list with 5 tasks, **When** I export my data, **Then** a file should be created containing all 5 tasks.
-2. **Given** an exported file, **When** I import it into an empty application, **Then** all tasks from the file should be restored with their original titles, descriptions, and reminders.
+1. **Dado** uma tarefa "Consulta médica", **Quando** eu defino um lembrete para amanhã às 10:00 AM, **Então** a tarefa deve exibir o horário do lembrete agendado.
+2. **Dado** uma tarefa com um lembrete, **Quando** eu removo o lembrete, **Então** a tarefa não deve mais ter um horário associado.
 
 ---
 
-### Edge Cases
+### História de Usuário 3 - Importação/Exportação de Dados (Prioridade: P3)
 
-- What happens when the JSON storage file is missing or corrupted? (Resilience Principle)
-- How does the system handle invalid JSON data during import? (Resilience Principle)
-- Are user-facing error messages friendly and non-technical if a reminder date is in the past? (UX Principle)
-- What happens if the export location is not writable?
+Como usuário, desejo exportar minhas tarefas para um arquivo e importá-las de volta para que eu possa fazer backup dos meus dados ou movê-los entre dispositivos.
 
-## Clarifications
+**Por que esta prioridade**: Fornece portabilidade de dados e resiliência contra perda de dados locais.
 
-### Session 2026-05-17
-- Q: Should import replace existing data or merge with it? → A: User can choose between Replace and Smart Merge during import.
-- Q: What is the primary user interface for this TODO list? → A: Web interface.
-- Q: How should the system "remind" the user when the scheduled time is reached? → A: In-app notifications only (visible when the Web UI is open).
-- Q: What criteria defines a "duplicate" task during a Smart Merge? → A: Tasks with the same Title AND same Reminder Date/Time.
-- Q: Should tasks include a "Completed" status? → A: Yes, tasks can be toggled between Pending and Done.
+**Teste Independente**: Pode ser testado exportando uma lista de tarefas, deletando os dados locais e, em seguida, importando o arquivo para restaurar a lista.
 
-## Requirements *(mandatory)*
+**Cenários de Aceitação**:
 
-### Functional Requirements
+1. **Dado** uma lista com 5 tarefas, **Quando** eu exporto meus dados, **Então** um arquivo deve ser criado contendo as 5 tarefas.
+2. **Dado** um arquivo exportado, **Quando** eu o importo em uma aplicação vazia, **Então** todas as tarefas do arquivo devem ser restauradas com seus títulos, descrições e lembretes originais.
 
-- **FR-001**: System MUST allow users to create tasks with a mandatory Title and an optional Description.
-- **FR-002**: System MUST allow users to retrieve a list of all existing tasks via a Web interface.
-- **FR-003**: System MUST allow users to update the Title, Description, Reminder, and Completion Status of an existing task.
-- **FR-004**: System MUST allow users to permanently delete a task.
-- **FR-005**: System MUST allow users to set a single reminder (date and time) for each task.
-- **FR-006**: System MUST export all task data into a JSON file format.
-- **FR-007**: System MUST allow users to choose between 'Replace' and 'Smart Merge' when importing a JSON file; duplicates for Smart Merge are identified by matching Title and Reminder Date/Time.
-- **FR-008**: System MUST validate that reminder dates are not in the past during creation/update.
-- **FR-009**: System MUST provide a browser-based Web UI for all task operations.
-- **FR-010**: System MUST display visual notifications for task reminders within the Web UI.
-- **FR-011**: System MUST allow users to toggle the completion status of a task (Pending/Done).
+---
 
-### Key Entities
+### Casos de Borda
 
-- **Task**: Represents a single item in the TODO list.
-  - `title`: String (Required)
-  - `description`: String (Optional)
-  - `reminder_at`: DateTime (Optional)
-  - `status`: Enum (Pending/Done, defaults to Pending)
+- O que acontece quando o arquivo de armazenamento JSON está ausente ou corrompido? (Princípio de Resiliência)
+- Como o sistema lida com dados JSON inválidos durante a importação? (Princípio de Resiliência)
+- As mensagens de erro para o usuário são amigáveis e não técnicas se uma data de lembrete estiver no passado? (Princípio de UX)
+- O que acontece se o local de exportação não for gravável?
 
-## Success Criteria *(mandatory)*
+## Clarificações
 
-### Measurable Outcomes
+### Sessão 2026-05-17
+- P: A importação deve substituir os dados existentes ou mesclá-los? → R: O usuário pode escolher entre Substituir (Replace) e Mesclagem Inteligente (Smart Merge) durante a importação.
+- P: Qual é a interface de usuário principal para este TODO List? → R: Interface Web.
+- P: Como o sistema deve "lembrar" o usuário quando o horário agendado for atingido? → R: Apenas notificações internas (visíveis quando a UI Web estiver aberta).
+- P: Quais critérios definem uma tarefa "duplicada" durante uma Mesclagem Inteligente? → R: Tarefas com o mesmo Título E mesma Data/Hora de Lembrete.
+- P: As tarefas devem incluir um status de conclusão? → R: Sim, as tarefas podem ser alternadas entre Pendente e Concluída.
 
-- **SC-001**: 100% of tasks created are successfully persisted to local JSON storage.
-- **SC-002**: Users can complete the creation of a task with a reminder in under 15 seconds.
-- **SC-003**: Data exported from the system can be validated as standard-compliant JSON.
-- **SC-004**: 100% of data integrity is maintained during a full Export-then-Import cycle.
-- **SC-005**: Task status toggles are reflected in the Web UI in under 1 second.
+## Requisitos *(obrigatórios)*
 
-## Assumptions
+### Requisitos Funcionais
 
-- [Assumption about environment]: The user has local file system write permissions.
-- [Assumption about timezones]: All reminders are stored and handled in the system's local timezone.
-- [Assumption about storage]: Data is stored in a single `tasks.json` file by default.
+- **FR-001**: O sistema DEVE permitir que os usuários criem tarefas com um Título obrigatório e uma Descrição opcional.
+- **FR-002**: O sistema DEVE permitir que os usuários visualizem uma lista de todas as tarefas existentes via interface Web.
+- **FR-003**: O sistema DEVE permitir que os usuários atualizem o Título, Descrição, Lembrete e Status de Conclusão de uma tarefa existente.
+- **FR-004**: O sistema DEVE permitir que os usuários excluam permanentemente uma tarefa.
+- **FR-005**: O sistema DEVE permitir que os usuários definam um único lembrete (data e hora) para cada tarefa.
+- **FR-006**: O sistema DEVE exportar todos os dados das tarefas para um formato de arquivo JSON.
+- **FR-007**: O sistema DEVE permitir que os usuários escolham entre 'Substituir' e 'Mesclagem Inteligente' ao importar um arquivo JSON; duplicatas para a Mesclagem Inteligente são identificadas pelo Título e Data/Hora do Lembrete correspondentes.
+- **FR-008**: O sistema DEVE validar que as datas de lembrete não estão no passado durante a criação/atualização.
+- **FR-009**: O sistema DEVE fornecer uma interface Web baseada em navegador para todas as operações de tarefas.
+- **FR-010**: O sistema DEVE exibir notificações visuais para lembretes de tarefas dentro da interface Web.
+- **FR-011**: O sistema DEVE permitir que os usuários alternem o status de conclusão de uma tarefa (Pendente/Concluída).
+
+### Entidades Principais
+
+- **Tarefa (Task)**: Representa um único item na lista de tarefas.
+  - `title`: String (Obrigatório)
+  - `description`: String (Opcional)
+  - `reminder_at`: DateTime (Opcional)
+  - `status`: Enum (Pendente/Concluída, padrão: Pendente)
+
+## Critérios de Sucesso *(obrigatório)*
+
+### Resultados Mensuráveis
+
+- **SC-001**: 100% das tarefas criadas são persistidas com sucesso no armazenamento JSON local.
+- **SC-002**: Os usuários podem completar a criação de uma tarefa com um lembrete em menos de 15 segundos.
+- **SC-003**: Os dados exportados do sistema podem ser validados como JSON em conformidade com o padrão.
+- **SC-004**: 100% da integridade dos dados é mantida durante um ciclo completo de Exportação e Importação.
+- **SC-005**: As alterações de status da tarefa são refletidas na interface Web em menos de 1 segundo.
+
+## Suposições
+
+- [Suposição sobre o ambiente]: O usuário tem permissões de gravação no sistema de arquivos local.
+- [Suposição sobre fusos horários]: Todos os lembretes são armazenados e manipulados no fuso horário local do sistema.
+- [Suposição sobre armazenamento]: Os dados são armazenados em um único arquivo `tasks.json` por padrão.

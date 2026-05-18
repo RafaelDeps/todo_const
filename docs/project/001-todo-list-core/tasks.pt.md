@@ -1,205 +1,205 @@
 ---
 
-description: "Task list for TODO List Core Features implementation"
+description: "Lista de tarefas para a implementação das Funcionalidades Core do TODO List"
 ---
 
-# Tasks: TODO List Core Features
+# Tarefas: Funcionalidades Core do TODO List
 
-**Input**: Design documents from `/specs/001-todo-list-core/`
-**Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
+**Entrada**: Documentos de design de `/specs/001-todo-list-core/`
+**Pré-requisitos**: plan.md (obrigatório), spec.md (obrigatório), research.md, data-model.md, contracts/
 
-**Tests**: TDD approach requested. Tests are mandatory for each functional area.
+**Testes**: Abordagem TDD solicitada. Testes são obrigatórios para cada área funcional.
 
-**Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
+**Organização**: As tarefas são agrupadas por história de usuário para permitir a implementação e os testes independentes de cada história.
 
-## Format: `[ID] [P?] [Story] Description`
+## Formato: `[ID] [P?] [Story] Descrição`
 
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
-
----
-
-## Phase 1: Setup (Shared Infrastructure)
-
-**Purpose**: Project initialization and basic structure
-
-- [x] T001 Create project structure (src/, tests/, templates/, static/, utils/) per implementation plan
-- [x] T002 Initialize Python project (venv, requirements.txt with Flask, pytest, mypy, flake8)
-- [x] T003 [P] Configure Flake8/Black and Mypy for PEP 8 and Type Hint enforcement
-- [x] T004 [P] Setup pytest configuration in tests/conftest.py with Flask app fixture
+- **[P]**: Pode rodar em paralelo (arquivos diferentes, sem dependências)
+- **[Story]**: A qual história de usuário esta tarefa pertence (ex: US1, US2, US3)
 
 ---
 
-## Phase 2: Foundational (Blocking Prerequisites)
+## Fase 1: Configuração (Infraestrutura Compartilhada)
 
-**Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
+**Propósito**: Inicialização do projeto e estrutura básica
 
-**⚠️ CRITICAL**: No user story work can begin until this phase is complete
-
-- [x] T005 [P] Create base CSS layout in src/static/style.css
-- [x] T006 [P] Create base Jinja2 template in src/templates/base.html
-- [x] T007 [P] Implement helper utilities in src/utils/helpers.py (UUID gen, ISO formatting)
-- [x] T008 [P] Write unit tests for JSON I/O resilience in tests/unit/test_task_model.py
-- [x] T009 Implement Task Model with atomic JSON I/O and Resilience in src/models/task.py (depends on T008)
-- [x] T010 [P] Setup centralized error handling (flashed messages) in src/app.py
-
-**Checkpoint**: Foundation ready - user story implementation can now begin in parallel
+- [x] T001 Criar estrutura do projeto (src/, tests/, templates/, static/, utils/) conforme o plano de implementação
+- [x] T002 Inicializar projeto Python (venv, requirements.txt com Flask, pytest, mypy, flake8)
+- [x] T003 [P] Configurar Flake8/Black e Mypy para aplicação de PEP 8 e Type Hints
+- [x] T004 [P] Configurar pytest em tests/conftest.py com fixture da app Flask
 
 ---
 
-## Phase 3: User Story 1 - Task Management (Priority: P1) 🎯 MVP
+## Fase 2: Fundamental (Pré-requisitos Bloqueadores)
 
-**Goal**: CRUD operations for tasks (Title/Description/Status)
+**Propósito**: Infraestrutura core que DEVE estar completa antes que QUALQUER história de usuário possa ser implementada
 
-**Independent Test**: Create, View, Update, Delete a task through the Web UI and verify JSON storage.
+**⚠️ CRÍTICO**: Nenhum trabalho de história de usuário pode começar até que esta fase esteja concluída
 
-### Tests for User Story 1 (TDD)
+- [x] T005 [P] Criar layout CSS base em src/static/style.css
+- [x] T006 [P] Criar template Jinja2 base em src/templates/base.html
+- [x] T007 [P] Implementar utilitários auxiliares em src/utils/helpers.py (geração de UUID, formatação ISO)
+- [x] T008 [P] Escrever testes unitários para resiliência de I/O JSON em tests/unit/test_task_model.py
+- [x] T009 Implementar Model de Tarefa com I/O JSON atômico e Resiliência em src/models/task.py (depende de T008)
+- [x] T010 [P] Configurar tratamento de erros centralizado (mensagens flashed) em src/app.py
 
-- [x] T011 [P] [US1] Write unit tests for Task entity validation in tests/unit/test_task_model.py
-- [x] T012 [P] [US1] Write integration tests for CRUD routes (/, /tasks/add, /update, /toggle, /delete) in tests/integration/test_crud.py
-
-### Implementation for User Story 1
-
-- [x] T013 [P] [US1] Enhance Task model with validation and status fields in src/models/task.py
-- [x] T014 [US1] Implement Main Dashboard route (GET /) in src/app.py
-- [x] T015 [US1] Create Index template with task list and add form in src/templates/index.html
-- [x] T016 [US1] Implement Create task route (POST /tasks/add) in src/app.py
-- [x] T017 [US1] Implement Toggle status route (POST /tasks/<id>/toggle) in src/app.py
-- [x] T018 [US1] Implement Update task route (POST /tasks/<id>/update) in src/app.py
-- [x] T019 [US1] Implement Delete task route (POST /tasks/<id>/delete) in src/app.py
-
-**Checkpoint**: At this point, User Story 1 is fully functional and testable independently
+**Ponto de Verificação**: Fundação pronta - a implementação das histórias de usuário pode agora começar em paralelo
 
 ---
 
-## Phase 4: User Story 2 - Task Reminders (Priority: P2)
+## Fase 3: História de Usuário 1 - Gerenciamento de Tarefas (Prioridade: P1) 🎯 MVP
 
-**Goal**: System of reminders by date/time
+**Objetivo**: Operações CRUD para tarefas (Título/Descrição/Status)
 
-**Independent Test**: Set a reminder for a task and verify it is displayed and triggers a visual notification in the Web UI.
+**Teste Independente**: Criar, Visualizar, Atualizar, Excluir uma tarefa através da interface Web e verificar o armazenamento JSON.
 
-### Tests for User Story 2 (TDD)
+### Testes para a História de Usuário 1 (TDD)
 
-- [x] T020 [P] [US2] Write unit tests for reminder date validation in tests/unit/test_task_model.py
-- [x] T021 [P] [US2] Write integration tests for reminder display in tests/integration/test_reminders.py
+- [x] T011 [P] [US1] Escrever testes unitários para validação da entidade Task em tests/unit/test_task_model.py
+- [x] T012 [P] [US1] Escrever testes de integração para rotas CRUD (/, /tasks/add, /update, /toggle, /delete) em tests/integration/test_crud.py
 
-### Implementation for User Story 2
+### Implementação para a História de Usuário 1
 
-- [x] T022 [P] [US2] Update Task model to handle reminder_at field in src/models/task.py
-- [x] T023 [US2] Update Index template to show reminder inputs and display in src/templates/index.html
-- [x] T024 [US2] Update Create/Update routes in src/app.py to handle reminder_at
-- [x] T025 [US2] Implement In-App visual notification logic (JavaScript) in src/templates/base.html
+- [x] T013 [P] [US1] Aprimorar o model Task com campos de validação e status em src/models/task.py
+- [x] T014 [US1] Implementar rota do Painel Principal (GET /) em src/app.py
+- [x] T015 [US1] Criar template Index com lista de tarefas e formulário de adição em src/templates/index.html
+- [x] T016 [US1] Implementar rota de Criar tarefa (POST /tasks/add) em src/app.py
+- [x] T017 [US1] Implementar rota de Alternar status (POST /tasks/<id>/toggle) em src/app.py
+- [x] T018 [US1] Implementar rota de Atualizar tarefa (POST /tasks/<id>/update) em src/app.py
+- [x] T019 [US1] Implementar rota de Excluir tarefa (POST /tasks/<id>/delete) em src/app.py
 
-**Checkpoint**: At this point, User Stories 1 AND 2 are both functional independently
-
----
-
-## Phase 5: User Story 3 - Data Import/Export (Priority: P3)
-
-**Goal**: Import/Export tasks to/from JSON files
-
-**Independent Test**: Export tasks to a file, clear data, and import the file back choosing "Replace" or "Smart Merge".
-
-### Tests for User Story 3 (TDD)
-
-- [x] T026 [P] [US3] Write unit tests for Smart Merge logic in tests/unit/test_task_model.py
-- [x] T027 [P] [US3] Write integration tests for Export/Import routes in tests/integration/test_portability.py
-
-### Implementation for User Story 3
-
-- [x] T028 [P] [US3] Implement Smart Merge and Export logic in src/models/task.py
-- [x] T029 [US3] Implement Export route (GET /export) in src/app.py
-- [x] T030 [US3] Create Import template with file upload and mode selection in src/templates/import.html
-- [x] T031 [US3] Implement Import route (POST /import) in src/app.py
-
-**Checkpoint**: All user stories are now independently functional
+**Ponto de Verificação**: Neste ponto, a História de Usuário 1 está totalmente funcional e testável de forma independente
 
 ---
 
-## Phase N: Polish & Cross-Cutting Concerns
+## Fase 4: História de Usuário 2 - Lembretes de Tarefa (Prioridade: P2)
 
-**Purpose**: Final refinements and quality checks
+**Objetivo**: Sistema de lembretes por data/hora
 
-- [x] T032 [P] Final PEP 8 linting and Type Hint validation across all files
-- [x] T033 [P] Update quickstart.md with final usage examples
-- [x] T034 Run full test suite (pytest) to ensure no regressions
-- [x] T035 Verify friendly error handling for all I/O failure scenarios
+**Teste Independente**: Definir um lembrete para uma tarefa e verificar se ele é exibido e aciona uma notificação visual na interface Web.
 
----
+### Testes para a História de Usuário 2 (TDD)
 
-## Dependencies & Execution Order
+- [x] T020 [P] [US2] Escrever testes unitários para validação de data de lembrete em tests/unit/test_task_model.py
+- [x] T021 [P] [US2] Escrever testes de integração para exibição de lembretes em tests/integration/test_reminders.py
 
-### Phase Dependencies
+### Implementação para a História de Usuário 2
 
-- **Setup (Phase 1)**: No dependencies - can start immediately
-- **Foundational (Phase 2)**: Depends on Setup completion - BLOCKS all user stories
-- **User Stories (Phase 3+)**: All depend on Foundational phase completion
-  - US1 (CRUD) is the base for US2 and US3
-  - US2 (Reminders) and US3 (Portability) can run in parallel once US1 is stable
+- [x] T022 [P] [US2] Atualizar model Task para lidar com o campo reminder_at em src/models/task.py
+- [x] T023 [US2] Atualizar template Index para mostrar campos de lembrete e exibição em src/templates/index.html
+- [x] T024 [US2] Atualizar rotas de Criar/Atualizar em src/app.py para lidar com reminder_at
+- [x] T025 [US2] Implementar lógica de notificação visual In-App (JavaScript) em src/templates/base.html
 
-### User Story Dependencies
-
-- **User Story 1 (P1)**: Foundation for other stories.
-- **User Story 2 (P2)**: Extends US1 models and views.
-- **User Story 3 (P3)**: Operates on models established in US1.
-
-### Within Each User Story (TDD Style)
-
-1. Write tests FIRST and ensure they fail.
-2. Implement model/service logic.
-3. Implement controller/route logic.
-4. Implement UI/template logic.
-5. Verify tests pass.
+**Ponto de Verificação**: Neste ponto, as Histórias de Usuário 1 E 2 estão funcionais de forma independente
 
 ---
 
-## Parallel Execution Examples
+## Fase 5: História de Usuário 3 - Importação/Exportação de Dados (Prioridade: P3)
 
-### Parallel Setup & Foundation
+**Objetivo**: Importar/Exportar tarefas de/para arquivos JSON
+
+**Teste Independente**: Exportar tarefas para um arquivo, limpar os dados e importar o arquivo de volta escolhendo "Substituir" ou "Mesclagem Inteligente".
+
+### Testes para a História de Usuário 3 (TDD)
+
+- [x] T026 [P] [US3] Escrever testes unitários para a lógica de Mesclagem Inteligente em tests/unit/test_task_model.py
+- [x] T027 [P] [US3] Escrever testes de integração para rotas de Exportação/Importação em tests/integration/test_portability.py
+
+### Implementação para a História de Usuário 3
+
+- [x] T028 [P] [US3] Implementar lógica de Mesclagem Inteligente e Exportação no src/models/task.py
+- [x] T029 [US3] Implementar rota de Exportação (GET /export) em src/app.py
+- [x] T030 [US3] Criar template de Importação com upload de arquivo e seleção de modo em src/templates/import.html
+- [x] T031 [US3] Implementar rota de Importação (POST /import) em src/app.py
+
+**Ponto de Verificação**: Todas as histórias de usuário estão agora funcionalmente independentes
+
+---
+
+## Fase N: Polimento e Preocupações Transversais
+
+**Propósito**: Refinamentos finais e verificações de qualidade
+
+- [x] T032 [P] Linting PEP 8 final e validação de Type Hints em todos os arquivos
+- [x] T033 [P] Atualizar quickstart.md com exemplos de uso finais
+- [x] T034 Rodar suíte completa de testes (pytest) para garantir que não haja regressões
+- [x] T035 Verificar tratamento de erros amigável para todos os cenários de falha de I/O
+
+---
+
+## Dependências e Ordem de Execução
+
+### Dependências de Fase
+
+- **Configuração (Fase 1)**: Sem dependências - pode começar imediatamente
+- **Fundamental (Fase 2)**: Depende da conclusão da Configuração - BLOQUEIA todas as histórias de usuário
+- **Histórias de Usuário (Fase 3+)**: Todas dependem da conclusão da fase Fundamental
+  - US1 (CRUD) é a base para US2 e US3
+  - US2 (Lembretes) e US3 (Portabilidade) podem rodar em paralelo uma vez que a US1 esteja estável
+
+### Dependências de História de Usuário
+
+- **História de Usuário 1 (P1)**: Fundação para as outras histórias.
+- **História de Usuário 2 (P2)**: Estende os models e views da US1.
+- **História de Usuário 3 (P3)**: Opera nos models estabelecidos na US1.
+
+### Dentro de cada História de Usuário (Estilo TDD)
+
+1. Escrever testes PRIMEIRO e garantir que falhem.
+2. Implementar a lógica de model/serviço.
+3. Implementar a lógica de controller/rota.
+4. Implementar a lógica de UI/template.
+5. Verificar se os testes passam.
+
+---
+
+## Exemplos de Execução Paralela
+
+### Configuração e Fundação Paralelas
 
 ```bash
-# Developer A: Setup & Linting
-Task: "T002 Initialize Python project"
-Task: "T003 Configure Flake8/Black and Mypy"
+# Desenvolvedor A: Configuração e Linting
+Tarefa: "T002 Inicializar projeto Python"
+Tarefa: "T003 Configurar Flake8/Black e Mypy"
 
-# Developer B: Infrastructure
-Task: "T005 Create base CSS layout"
-Task: "T006 Create base Jinja2 template"
+# Desenvolvedor B: Infraestrutura
+Tarefa: "T005 Criar layout CSS base"
+Tarefa: "T006 Criar template Jinja2 base"
 ```
 
-### Parallel Model & View (Foundational)
+### Model e View Paralelos (Fundamental)
 
 ```bash
-# Parallel execution within Phase 2:
-Task: "T008 Write unit tests for JSON I/O resilience" -> "T009 Implement Task Model"
-Task: "T007 Implement helper utilities"
-Task: "T010 Setup centralized error handling"
+# Execução paralela dentro da Fase 2:
+Tarefa: "T008 Escrever testes unitários para resiliência de I/O JSON" -> "T009 Implementar Model de Tarefa"
+Tarefa: "T007 Implementar utilitários auxiliares"
+Tarefa: "T010 Configurar tratamento de erros centralizado"
 ```
 
 ---
 
-## Implementation Strategy
+## Estratégia de Implementação
 
-### MVP First (User Story 1 Only)
+### MVP Primeiro (Apenas História de Usuário 1)
 
-1. Complete Phase 1: Setup
-2. Complete Phase 2: Foundational (CRITICAL)
-3. Complete Phase 3: User Story 1 (CRUD)
-4. **STOP and VALIDATE**: Test CRUD independently via Web UI.
+1. Concluir Fase 1: Configuração
+2. Concluir Fase 2: Fundamental (CRÍTICO)
+3. Concluir Fase 3: História de Usuário 1 (CRUD)
+4. **PARAR e VALIDAR**: Testar o CRUD independentemente via interface Web.
 
-### Incremental Delivery
+### Entrega Incremental
 
-1. Foundation ready.
-2. Add CRUD (MVP).
-3. Add Reminders.
-4. Add Import/Export.
-5. Each story is delivered with its own tests.
+1. Fundação pronta.
+2. Adicionar CRUD (MVP).
+3. Adicionar Lembretes.
+4. Adicionar Importação/Exportação.
+5. Cada história é entregue com seus próprios testes.
 
 ---
 
-## Notes
+## Notas
 
-- TDD is strictly enforced: Tests (T008, T011, T012, T020, T021, T026, T027) MUST be done before implementation.
-- [P] markers indicate tasks with no blocking dependencies within their phase.
-- File paths are specific to the requested project structure.
-- Resilience and UX principles (from Constitution) are embedded in foundational and story tasks.
+- TDD é rigorosamente aplicado: Testes (T008, T011, T012, T020, T021, T026, T027) DEVEM ser feitos antes da implementação.
+- Marcadores [P] indicam tarefas sem dependências bloqueadoras dentro de sua fase.
+- Os caminhos de arquivos são específicos para a estrutura de projeto solicitada.
+- Os princípios de resiliência e UX (da Constituição) estão incorporados nas tarefas fundamentais e de histórias.
