@@ -1,21 +1,3 @@
-<!--
-Sync Impact Report:
-- Version change: 0.0.0 → 1.0.0
-- List of modified principles:
-  - [PRINCIPLE_1_NAME] → I. Strictly Python Stack
-  - [PRINCIPLE_2_NAME] → II. Local JSON Persistence
-  - [PRINCIPLE_3_NAME] → III. Code Quality & Standards
-  - [PRINCIPLE_4_NAME] → IV. Resilience & I/O Integrity
-  - [PRINCIPLE_5_NAME] → V. User-Centric UX & Error Handling
-- Added sections: Development Constraints, Development Workflow
-- Removed sections: None
-- Templates requiring updates (✅ updated / ⚠ pending):
-  - .specify/templates/plan-template.md (✅ updated)
-  - .specify/templates/spec-template.md (✅ updated)
-  - .specify/templates/tasks-template.md (✅ updated)
-- Follow-up TODOs: None
--->
-
 # todo-const Constitution
 <!-- Non-negotiable rules and standards for the todo-const project -->
 

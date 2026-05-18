@@ -29,6 +29,13 @@ plugins:
         - locale: pt
           name: Português
           build: true
+          nav:
+            - Home: index.pt.md
+            - Project Constitution: constitution.pt.md
+            - Core Features (001):
+                - Specification: project/001-todo-list-core/spec.pt.md
+                - Plan: project/001-todo-list-core/plan.pt.md
+                - Tasks: project/001-todo-list-core/tasks.pt.md
           nav_translations:
             Home: Início
             Project Constitution: Constituição do Projeto
