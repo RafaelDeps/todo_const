@@ -8,6 +8,15 @@ theme:
     primary: indigo
     accent: indigo
 
+extra:
+  alternate:
+    - name: English
+      link: /todo_const/
+      lang: en
+    - name: Português
+      link: /todo_const/pt/
+      lang: pt
+
 plugins:
   - search
   - i18n:
@@ -22,28 +31,37 @@ plugins:
           build: true
           nav_translations:
             Home: Início
-            Constitution: Constituição
-            Specify: Specify
+            Project Constitution: Constituição do Projeto
+            Core Features (001): Funcionalidades Core (001)
+            Specification: Especificação
+            Plan: Plano
+            Tasks: Tarefas
+            Specify Templates: Modelos do Specify
             Overview: Visão Geral
             Templates: Modelos
-            Checklist: Checklist
-            Plan: Plano
-            Spec: Especificação
-            Tasks: Tarefas
+            Checklist Template: Checklist
+            Constitution Template: Constituição
+            Plan Template: Plano
+            Spec Template: Especificação
+            Tasks Template: Tarefas
       reconfigure_material: true
       fallback_to_default: true
 
 nav:
   - Home: index.md
-  - Constitution: constitution.md
-  - Specify:
+  - Project Constitution: constitution.md
+  - Core Features (001):
+      - Specification: project/001-todo-list-core/spec.md
+      - Plan: project/001-todo-list-core/plan.md
+      - Tasks: project/001-todo-list-core/tasks.md
+  - Specify Templates:
       - Overview: specify/overview.md
       - Templates:
-          - Checklist: specify/templates/checklist.md
-          - Constitution: specify/templates/constitution.md
-          - Plan: specify/templates/plan.md
-          - Spec: specify/templates/spec.md
-          - Tasks: specify/templates/tasks.md
+          - Checklist Template: specify/templates/checklist.md
+          - Constitution Template: specify/templates/constitution.md
+          - Plan Template: specify/templates/plan.md
+          - Spec Template: specify/templates/spec.md
+          - Tasks Template: specify/templates/tasks.md
 
 markdown_extensions:
   - admonition
