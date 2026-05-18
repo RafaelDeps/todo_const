@@ -36,14 +36,8 @@ plugins:
             Specification: Especificação
             Plan: Plano
             Tasks: Tarefas
-            Specify Templates: Modelos do Specify
+            Specify: Specify
             Overview: Visão Geral
-            Templates: Modelos
-            Checklist Template: Checklist
-            Constitution Template: Constituição
-            Plan Template: Plano
-            Spec Template: Especificação
-            Tasks Template: Tarefas
       reconfigure_material: true
       fallback_to_default: true
 
@@ -54,14 +48,8 @@ nav:
       - Specification: project/001-todo-list-core/spec.md
       - Plan: project/001-todo-list-core/plan.md
       - Tasks: project/001-todo-list-core/tasks.md
-  - Specify Templates:
+  - Specify:
       - Overview: specify/overview.md
-      - Templates:
-          - Checklist Template: specify/templates/checklist.md
-          - Constitution Template: specify/templates/constitution.md
-          - Plan Template: specify/templates/plan.md
-          - Spec Template: specify/templates/spec.md
-          - Tasks Template: specify/templates/tasks.md
 
 markdown_extensions:
   - admonition
