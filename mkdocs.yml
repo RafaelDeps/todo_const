@@ -11,10 +11,10 @@ theme:
 extra:
   alternate:
     - name: English
-      link: /todo_const/
+      link: /todo_const/docs/
       lang: en
     - name: Português
-      link: /todo_const/pt/
+      link: /todo_const/docs/pt/
       lang: pt
 
 plugins:

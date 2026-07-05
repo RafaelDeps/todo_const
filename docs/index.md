@@ -21,7 +21,12 @@ The project follows a clean **MVC (Model-View-Controller)** pattern:
 
 ## 🚀 Getting Started
 
-### Installation & Run
+### Web Version (GitHub Pages)
+
+You can access and use the To-Do List application directly in your browser via GitHub Pages, with no local installation required:
+👉 **[Open App on GitHub Pages](../)**
+
+### Local Installation & Run
 
 ```bash
 python3 -m venv venv

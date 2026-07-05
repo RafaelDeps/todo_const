@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List - Const</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-icon">✓</span>
+                <h1>Const Todo</h1>
+            </div>
+            <nav class="app-nav">
+                <button class="nav-btn active" data-tab="tasks">Tarefas</button>
+                <button class="nav-btn" data-tab="portability">Portabilidade</button>
+                <a href="docs/" class="nav-link" target="_self">Documentação</a>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+            
+            <!-- Flashes / Toasts Container -->
+            <div id="toast-container" class="toast-container"></div>
+
+            <!-- Tab: Tasks -->
+            <section id="tab-tasks" class="tab-content active">
+                <div class="dashboard-grid">
+                    
+                    <!-- Left Column: Add Task Form -->
+                    <div class="card add-task-card">
+                        <h2>Adicionar Tarefa</h2>
+                        <form id="add-task-form">
+                            <div class="form-group">
+                                <label for="title">Título (obrigatório)</label>
+                                <input type="text" id="title" required maxlength="100" placeholder="Ex: Estudar React">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description">Descrição</label>
+                                <textarea id="description" rows="3" placeholder="Ex: Assistir aulas 1 a 5 e fazer o exercício prático"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reminder_at">Lembrete (Opcional)</label>
+                                <input type="datetime-local" id="reminder_at">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+                        </form>
+                    </div>
+
+                    <!-- Right Column: Tasks List -->
+                    <div class="card tasks-list-card">
+                        <div class="tasks-list-header">
+                            <h2>Minhas Tarefas</h2>
+                            <div class="task-stats">
+                                <span id="stats-pending" class="badge badge-info">0 pendentes</span>
+                            </div>
+                        </div>
+
+                        <!-- Search and Filter Controls -->
+                        <div class="controls-row">
+                            <div class="search-box">
+                                <input type="text" id="search-input" placeholder="Buscar tarefas...">
+                                <span class="search-icon">🔍</span>
+                            </div>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="all">Todas</button>
+                                <button class="filter-btn" data-filter="pending">Pendentes</button>
+                                <button class="filter-btn" data-filter="completed">Concluídas</button>
+                            </div>
+                        </div>
+
+                        <!-- Tasks Ul -->
+                        <ul id="tasks-ul" class="task-list">
+                            <!-- Tasks loaded dynamically -->
+                        </ul>
+                        
+                        <div id="no-tasks-msg" class="no-tasks-message" style="display: none;">
+                            <p>Nenhuma tarefa encontrada. Adicione uma nova!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: Portability -->
+            <section id="tab-portability" class="tab-content">
+                <div class="portability-grid">
+                    <!-- Export Card -->
+                    <div class="card portability-card">
+                        <h2>Exportar Tarefas</h2>
+                        <p>Baixe todas as suas tarefas atuais em formato JSON para fazer backup ou usar em outro dispositivo.</p>
+                        <div class="portability-action">
+                            <button id="btn-export" class="btn btn-primary">Exportar tasks.json</button>
+                        </div>
+                    </div>
+
+                    <!-- Import Card -->
+                    <div class="card portability-card">
+                        <h2>Importar Tarefas</h2>
+                        <p>Selecione um arquivo <code>tasks.json</code> para restaurar ou mesclar suas tarefas.</p>
+                        <form id="import-task-form">
+                            <div class="form-group">
+                                <label for="import-file">Arquivo JSON</label>
+                                <input type="file" id="import-file" accept=".json" required class="file-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Modo de Importação</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="import-mode" value="merge" checked>
+                                        <span class="radio-custom"></span>
+                                        <span>Smart Merge (Ignora duplicatas por título e data)</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="import-mode" value="replace">
+                                        <span class="radio-custom"></span>
+                                        <span>Substituir tudo (Deleta as tarefas locais e usa as do arquivo)</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-secondary">Importar Tarefas</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Edit Task Modal -->
+        <div id="edit-modal" class="modal">
+            <div class="modal-content card">
+                <div class="modal-header">
+                    <h2>Editar Tarefa</h2>
+                    <span class="close-modal" id="close-modal-btn">&times;</span>
+                </div>
+                <form id="edit-task-form">
+                    <input type="hidden" id="edit-id">
+                    <div class="form-group">
+                        <label for="edit-title">Título (obrigatório)</label>
+                        <input type="text" id="edit-title" required maxlength="100">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-description">Descrição</label>
+                        <textarea id="edit-description" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-reminder_at">Lembrete (Opcional)</label>
+                        <input type="datetime-local" id="edit-reminder_at">
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-muted" id="btn-cancel-edit">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+</html>

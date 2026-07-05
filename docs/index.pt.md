@@ -21,7 +21,12 @@ O projeto segue o padrão **MVC (Model-View-Controller)**:
 
 ## 🚀 Começando
 
-### Instalação e Execução
+### Versão Web (GitHub Pages)
+
+Você pode acessar e usar o sistema To-Do List diretamente no seu navegador através do GitHub Pages, sem precisar instalar nada localmente:
+👉 **[Abrir App no GitHub Pages](../)**
+
+### Instalação e Execução Local
 
 ```bash
 python3 -m venv venv

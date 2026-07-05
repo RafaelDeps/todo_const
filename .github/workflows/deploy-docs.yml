@@ -25,4 +25,17 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r docs/requirements.txt
-      - run: mkdocs gh-deploy --force
+      - name: Build Docs
+        run: mkdocs build
+      - name: Prepare Deployment Directory
+        run: |
+          mkdir -p dist/docs
+          cp -r src/static_app/* dist/
+          cp -r site/* dist/docs/
+          touch dist/.nojekyll
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+
