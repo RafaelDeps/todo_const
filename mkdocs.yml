@@ -32,6 +32,7 @@ plugins:
           nav:
             - Home: index.pt.md
             - Project Constitution: constitution.pt.md
+            - SpecKit: speckit.pt.md
             - Core Features (001):
                 - Specification: project/001-todo-list-core/spec.pt.md
                 - Plan: project/001-todo-list-core/plan.pt.md
@@ -39,6 +40,7 @@ plugins:
           nav_translations:
             Home: Início
             Project Constitution: Constituição do Projeto
+            SpecKit: Metodologia SpecKit
             Core Features (001): Funcionalidades Core (001)
             Specification: Especificação
             Plan: Plano
@@ -49,6 +51,7 @@ plugins:
 nav:
   - Home: index.md
   - Project Constitution: constitution.md
+  - SpecKit: speckit.md
   - Core Features (001):
       - Specification: project/001-todo-list-core/spec.md
       - Plan: project/001-todo-list-core/plan.md

@@ -62,44 +62,56 @@ Access the full documentation, including the project constitution and technical 
 
 ## 🔧 SpecKit: Spec-Driven Development
 
-This project was built using **SpecKit**, a spec-driven development methodology that enforces rigorous planning before any code is written. Every feature was explicitly defined through formal specification documents before implementation began.
+Este projeto utiliza o **SpecKit**, uma metodologia de desenvolvimento orientada a especificações (*Specification-Driven Development* - SDD) que exige planejamento detalhado, conformidade com uma "constituição" de regras de design do projeto e acompanhamento de tarefas (incluindo TDD) antes do início da escrita de código.
 
-### The SpecKit Process
+### Configuração e Estrutura do SpecKit
 
-The development followed a structured workflow documented in `.specify/templates/`:
+A automação e os metadados do SpecKit estão organizados nos seguintes componentes:
 
-1. **Specification** (`spec.md`): The feature began with a user description in Portuguese:
-   > "Crie a especificação para um TODO List com: 1. CRUD de tarefas (Título/Descrição). 2. Sistema de lembretes por data/hora. 3. Função de Importar/Exportar dados."
+*   **Configurações do SpecKit:**
+    *   [.specify/init-options.json](.specify/init-options.json): Configura opções globais, incluindo a integração com a IA (`gemini`), numeração sequencial de branches e o arquivo de contexto principal (`GEMINI.md`).
+    *   [.specify/feature.json](.specify/feature.json): Registra o diretório da feature ativa (`specs/001-todo-list-core`).
+*   **Constituição do Projeto:**
+    *   [.specify/memory/constitution.md](.specify/memory/constitution.md) (com publicação em [docs/constitution.md](docs/constitution.md)): Estabelece os **5 princípios inegociáveis** que servem como portões de qualidade para qualquer alteração no código:
+        1. *Strictly Python Stack* (Uso exclusivo de Python/Flask para a lógica principal).
+        2. *Local JSON Persistence* (Persistência estritamente em arquivos JSON locais, proibindo bancos SQL/NoSQL).
+        3. *Code Quality & Standards* (Adesão estrita ao PEP 8, Type Hints obrigatórios e nomenclatura snake_case).
+        4. *Resilience & I/O Integrity* (Tratamento robusto de erros de I/O para evitar falhas críticas).
+        5. *User-Centric UX & Error Handling* (Esconder stack traces/erros técnicos e exibir mensagens amigáveis).
+*   **Workflow e Automação de Git:**
+    *   [.specify/extensions.yml](.specify/extensions.yml): Configura ganchos (hooks) de Git para automação de branches de features (`speckit.git.feature`) e auto-commits (`speckit.git.commit`) antes/depois de cada etapa.
+    *   [.specify/workflows/speckit/workflow.yml](.specify/workflows/speckit/workflow.yml): Define a esteira completa do ciclo de desenvolvimento (Full SDD Cycle).
+    *   [.gemini/commands/](.gemini/commands/): Contém comandos TOML customizados que definem as instruções passo a passo para a IA em cada fase do ciclo (por exemplo, `speckit.specify.toml`, `speckit.plan.toml`, `speckit.tasks.toml` e `speckit.implement.toml`).
 
-2. **User Stories with Acceptance Criteria**: Each user story follows the format defined in `.specify/templates/spec-template.md`:
-   - **Given** [initial state], **When** [action], **Then** [expected outcome]
-   - Example from `specs/001-todo-list-core/spec.md`:
-     > "**Given** an empty task list, **When** I create a task with title "Buy groceries" and description "Milk and eggs", **Then** the task should appear in my list."
+---
 
-3. **Implementation Tasks** (`tasks.md`): Tasks were generated using `.specify/templates/tasks-template.md`, following a TDD approach with phases:
-   - **Phase 1**: Setup (venv, requirements.txt)
-   - **Phase 2**: Foundational (models, templates, error handling)
-   - **Phase 3**: User Story 1 - Task Management (P1 - MVP)
-   - **Phase 4**: User Story 2 - Task Reminders (P2)
-   - **Phase 5**: User Story 3 - Data Import/Export (P3)
+### Ciclo de Desenvolvimento e Prompts Registrados
 
-   Each task was tracked with format `[ID] [P?] [Story] Description`, e.g., `T013 [P] [US1] Enhance Task model with validation and status fields`
+O ciclo de desenvolvimento da feature principal `001-todo-list-core` seguiu rigorosamente os passos e prompts abaixo:
 
-### Constitution Checks
+#### 1. Especificação (`speckit.specify`)
+*   **Prompt de Entrada:** 
+    > "Crie a especificação para um TODO List com: 1. CRUD de tarefas (Título/Descrição). 2. Sistema de lembretes por data/hora. 3. Função de Importar/Exportar dados."
+*   **Resultado:** Gerou a especificação em [specs/001-todo-list-core/spec.md](specs/001-todo-list-core/spec.md), detalhando histórias de usuário (US1, US2, US3) com critérios de aceitação estruturados no formato **Given / When / Then**, casos de borda e requisitos funcionais.
+*   **Qualidade:** O checklist em [specs/001-todo-list-core/checklists/requirements.md](specs/001-todo-list-core/checklists/requirements.md) foi utilizado para validar a qualidade e completude dos requisitos antes de prosseguir.
 
-Before implementation, the system validated against principles defined in `.specify/memory/constitution.md`:
+#### 2. Planejamento (`speckit.plan`)
+*   **Entrada:** A especificação [specs/001-todo-list-core/spec.md](specs/001-todo-list-core/spec.md) gerada anteriormente.
+*   **Resultado:** Gerou o plano em [specs/001-todo-list-core/plan.md](specs/001-todo-list-core/plan.md), estruturando a arquitetura técnica (MVC), a árvore de arquivos do projeto (`src/` e `tests/`) e os portões de conformidade constitucional.
+*   **Detalhes adicionais:**
+    *   [specs/001-todo-list-core/research.md](specs/001-todo-list-core/research.md): Registrou as decisões técnicas do projeto (como escrita atômica para integridade de dados).
+    *   [specs/001-todo-list-core/contracts/api.md](specs/001-todo-list-core/contracts/api.md): Documentou os contratos formais das rotas web/SSR e o esquema JSON de persistência/exportação.
 
-- **Principle I (Strictly Python Stack)**: "The project must be implemented exclusively using Python."
-- **Principle II (Local JSON Persistence)**: "Data persistence must rely solely on local JSON files. Use of SQL databases... is strictly prohibited."
-- **Principle III (Code Quality & Standards)**: "All Python code must adhere to PEP 8 standards. The use of Type Hints is mandatory..."
-- **Principle IV (Resilience & I/O Integrity)**: "Robust error handling must be implemented for all I/O operations..."
-- **Principle V (User-Centric UX & Error Handling)**: "User-facing messages must be friendly and helpful. Technical error details... must never be displayed."
+#### 3. Tarefas (`speckit.tasks`)
+*   **Entrada:** Os documentos de design de `specs/001-todo-list-core/`.
+*   **Resultado:** Gerou a lista em [specs/001-todo-list-core/tasks.md](specs/001-todo-list-core/tasks.md), rastreando as etapas de setup, infraestrutura básica, CRUD, lembretes e importação/exportação no formato `[ID] [P?] [Story] Descrição`.
 
-These principles were non-negotiable gates that had to pass before each phase could proceed.
+#### 4. Implementação (`speckit.implement`)
+*   **Entrada:** A especificação, o plano e as tarefas geradas anteriormente.
+*   **Aplicação de TDD:** Conforme exigido no arquivo de tarefas, testes de unidade e integração (ex: em `tests/unit/test_task_model.py` e `tests/integration/test_crud.py`) foram obrigatoriamente escritos e validados (falhando) antes do desenvolvimento da lógica correspondente nos controllers/models.
 
-### TDD Enforcement
+---
 
-As documented in `specs/001-todo-list-core/tasks.md`:
-> "TDD is strictly enforced: Tests (T008, T011, T012, T020, T021, T026, T027) MUST be done before implementation."
+### Documentação Pública (MkDocs)
 
-Each user story had mandatory test tasks that had to fail before implementation began, ensuring the specification drove the code rather than the other way around.
+Todas as especificações, planos e tarefas (incluindo traduções em português `.pt.md`) são compilados de forma unificada usando o **MkDocs** (configurado em [mkdocs.yml](mkdocs.yml)) e expostos no site de documentação oficial do repositório no GitHub Pages.
