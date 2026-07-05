@@ -61,3 +61,13 @@ def test_delete_task(client, app):
     assert b"Delete Me" not in response.data
 
     assert len(TaskModel(app.config["DATABASE"]).get_all()) == 0
+
+
+def test_serve_docs(client):
+    response = client.get("/docs")
+    assert response.status_code == 302
+    assert response.headers["Location"] == "/docs/"
+
+    response = client.get("/docs/")
+    assert response.status_code == 200
+    assert b"Documentation" in response.data or b"todo-const" in response.data

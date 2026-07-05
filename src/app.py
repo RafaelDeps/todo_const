@@ -1,8 +1,17 @@
 import os
 from typing import Any, Dict, Optional, Union
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    flash,
+    send_from_directory,
+)
 from werkzeug.wrappers import Response
 from src.models.task import TaskModel
+
 
 def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
@@ -129,7 +138,25 @@ def create_app(test_config: Optional[Dict[str, Any]] = None) -> Flask:
 
         return render_template("import.html")
 
+    @app.route("/docs/")
+    @app.route("/docs/<path:filename>")
+    def serve_docs(filename: str = "index.html") -> Response:
+        root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        docs_dir = os.path.join(root_dir, "site")
+
+        full_path = os.path.join(docs_dir, filename)
+        if os.path.isdir(full_path):
+            return send_from_directory(full_path, "index.html")
+
+        # send_from_directory returns compatible Response type
+        return send_from_directory(docs_dir, filename)
+
+    @app.route("/docs")
+    def docs_redirect() -> Response:
+        return redirect(url_for("serve_docs"))
+
     return app
+
 
 if __name__ == "__main__":
     app = create_app()
