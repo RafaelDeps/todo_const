@@ -1,0 +1,1024 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://RafaelDeps.github.io/todo_const/project/001-todo-list-core/spec/">
+      
+      
+        <link rel="prev" href="../../../speckit/">
+      
+      
+        <link rel="next" href="../plan/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../../pt/project/001-todo-list-core/spec/" hreflang="pt">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Specification - todo-const Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#feature-specification-todo-list-core-features" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="todo-const Documentation" class="md-header__button md-logo" aria-label="todo-const Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            todo-const Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Specification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../pt/project/001-todo-list-core/spec/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="todo-const Documentation" class="md-nav__button md-logo" aria-label="todo-const Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    todo-const Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../constitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Constitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../speckit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SpecKit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Features (001)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Features (001)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-scenarios-testing-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Scenarios &amp; Testing (mandatory)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Scenarios &amp; Testing (mandatory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-story-1-task-management-priority-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Story 1 - Task Management (Priority: P1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-story-2-task-reminders-priority-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Story 2 - Task Reminders (Priority: P2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-story-3-data-importexport-priority-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Story 3 - Data Import/Export (Priority: P3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clarifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clarifications
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clarifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session-2026-05-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session 2026-05-17
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements (mandatory)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements (mandatory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Entities
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-criteria-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria (mandatory)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Success Criteria (mandatory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measurable-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurable Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tasks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tasks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-scenarios-testing-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Scenarios &amp; Testing (mandatory)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Scenarios &amp; Testing (mandatory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-story-1-task-management-priority-p1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Story 1 - Task Management (Priority: P1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-story-2-task-reminders-priority-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Story 2 - Task Reminders (Priority: P2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-story-3-data-importexport-priority-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Story 3 - Data Import/Export (Priority: P3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge Cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clarifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clarifications
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Clarifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session-2026-05-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session 2026-05-17
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements (mandatory)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Requirements (mandatory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-entities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Entities
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#success-criteria-mandatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria (mandatory)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Success Criteria (mandatory)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#measurable-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measurable Outcomes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assumptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="feature-specification-todo-list-core-features">Feature Specification: TODO List Core Features</h1>
+<p><strong>Feature Branch</strong>: <code>001-todo-list-core-001</code><br />
+<strong>Created</strong>: 2026-05-17<br />
+<strong>Status</strong>: Draft<br />
+<strong>Input</strong>: User description: "Crie a especificação para um TODO List com: 1. CRUD de tarefas (Título/Descrição). 2. Sistema de lembretes por data/hora. 3. Função de Importar/Exportar dados."</p>
+<h2 id="user-scenarios-testing-mandatory">User Scenarios &amp; Testing <em>(mandatory)</em></h2>
+<h3 id="user-story-1-task-management-priority-p1">User Story 1 - Task Management (Priority: P1)</h3>
+<p>As a user, I want to create, view, update, and delete tasks so that I can organize my daily activities.</p>
+<p><strong>Why this priority</strong>: Core functionality of the application; without CRUD, other features have no context.</p>
+<p><strong>Independent Test</strong>: Can be tested by creating a task, verifying its presence, updating its content, and finally deleting it.</p>
+<p><strong>Acceptance Scenarios</strong>:</p>
+<ol>
+<li><strong>Given</strong> an empty task list, <strong>When</strong> I create a task with title "Buy groceries" and description "Milk and eggs", <strong>Then</strong> the task should appear in my list.</li>
+<li><strong>Given</strong> a task "Buy groceries", <strong>When</strong> I update its title to "Buy organic groceries", <strong>Then</strong> the list should reflect the new title.</li>
+<li><strong>Given</strong> a task "Buy organic groceries", <strong>When</strong> I delete it, <strong>Then</strong> it should no longer be visible in my list.</li>
+</ol>
+<hr />
+<h3 id="user-story-2-task-reminders-priority-p2">User Story 2 - Task Reminders (Priority: P2)</h3>
+<p>As a user, I want to set a specific date and time for a task reminder so that I don't forget important deadlines.</p>
+<p><strong>Why this priority</strong>: Enhances the utility of the TODO list by adding time-awareness.</p>
+<p><strong>Independent Test</strong>: Can be tested by setting a reminder for a task and verifying that the reminder data is stored and displayed correctly.</p>
+<p><strong>Acceptance Scenarios</strong>:</p>
+<ol>
+<li><strong>Given</strong> a task "Doctor appointment", <strong>When</strong> I set a reminder for tomorrow at 10:00 AM, <strong>Then</strong> the task should show the scheduled reminder time.</li>
+<li><strong>Given</strong> a task with a reminder, <strong>When</strong> I remove the reminder, <strong>Then</strong> the task should no longer have an associated time.</li>
+</ol>
+<hr />
+<h3 id="user-story-3-data-importexport-priority-p3">User Story 3 - Data Import/Export (Priority: P3)</h3>
+<p>As a user, I want to export my tasks to a file and import them back so that I can backup my data or move it between devices.</p>
+<p><strong>Why this priority</strong>: Provides data portability and resilience against local data loss.</p>
+<p><strong>Independent Test</strong>: Can be tested by exporting a list of tasks, deleting the local data, and then importing the file to restore the list.</p>
+<p><strong>Acceptance Scenarios</strong>:</p>
+<ol>
+<li><strong>Given</strong> a list with 5 tasks, <strong>When</strong> I export my data, <strong>Then</strong> a file should be created containing all 5 tasks.</li>
+<li><strong>Given</strong> an exported file, <strong>When</strong> I import it into an empty application, <strong>Then</strong> all tasks from the file should be restored with their original titles, descriptions, and reminders.</li>
+</ol>
+<hr />
+<h3 id="edge-cases">Edge Cases</h3>
+<ul>
+<li>What happens when the JSON storage file is missing or corrupted? (Resilience Principle)</li>
+<li>How does the system handle invalid JSON data during import? (Resilience Principle)</li>
+<li>Are user-facing error messages friendly and non-technical if a reminder date is in the past? (UX Principle)</li>
+<li>What happens if the export location is not writable?</li>
+</ul>
+<h2 id="clarifications">Clarifications</h2>
+<h3 id="session-2026-05-17">Session 2026-05-17</h3>
+<ul>
+<li>Q: Should import replace existing data or merge with it? → A: User can choose between Replace and Smart Merge during import.</li>
+<li>Q: What is the primary user interface for this TODO list? → A: Web interface.</li>
+<li>Q: How should the system "remind" the user when the scheduled time is reached? → A: In-app notifications only (visible when the Web UI is open).</li>
+<li>Q: What criteria defines a "duplicate" task during a Smart Merge? → A: Tasks with the same Title AND same Reminder Date/Time.</li>
+<li>Q: Should tasks include a "Completed" status? → A: Yes, tasks can be toggled between Pending and Done.</li>
+</ul>
+<h2 id="requirements-mandatory">Requirements <em>(mandatory)</em></h2>
+<h3 id="functional-requirements">Functional Requirements</h3>
+<ul>
+<li><strong>FR-001</strong>: System MUST allow users to create tasks with a mandatory Title and an optional Description.</li>
+<li><strong>FR-002</strong>: System MUST allow users to retrieve a list of all existing tasks via a Web interface.</li>
+<li><strong>FR-003</strong>: System MUST allow users to update the Title, Description, Reminder, and Completion Status of an existing task.</li>
+<li><strong>FR-004</strong>: System MUST allow users to permanently delete a task.</li>
+<li><strong>FR-005</strong>: System MUST allow users to set a single reminder (date and time) for each task.</li>
+<li><strong>FR-006</strong>: System MUST export all task data into a JSON file format.</li>
+<li><strong>FR-007</strong>: System MUST allow users to choose between 'Replace' and 'Smart Merge' when importing a JSON file; duplicates for Smart Merge are identified by matching Title and Reminder Date/Time.</li>
+<li><strong>FR-008</strong>: System MUST validate that reminder dates are not in the past during creation/update.</li>
+<li><strong>FR-009</strong>: System MUST provide a browser-based Web UI for all task operations.</li>
+<li><strong>FR-010</strong>: System MUST display visual notifications for task reminders within the Web UI.</li>
+<li><strong>FR-011</strong>: System MUST allow users to toggle the completion status of a task (Pending/Done).</li>
+</ul>
+<h3 id="key-entities">Key Entities</h3>
+<ul>
+<li><strong>Task</strong>: Represents a single item in the TODO list.</li>
+<li><code>title</code>: String (Required)</li>
+<li><code>description</code>: String (Optional)</li>
+<li><code>reminder_at</code>: DateTime (Optional)</li>
+<li><code>status</code>: Enum (Pending/Done, defaults to Pending)</li>
+</ul>
+<h2 id="success-criteria-mandatory">Success Criteria <em>(mandatory)</em></h2>
+<h3 id="measurable-outcomes">Measurable Outcomes</h3>
+<ul>
+<li><strong>SC-001</strong>: 100% of tasks created are successfully persisted to local JSON storage.</li>
+<li><strong>SC-002</strong>: Users can complete the creation of a task with a reminder in under 15 seconds.</li>
+<li><strong>SC-003</strong>: Data exported from the system can be validated as standard-compliant JSON.</li>
+<li><strong>SC-004</strong>: 100% of data integrity is maintained during a full Export-then-Import cycle.</li>
+<li><strong>SC-005</strong>: Task status toggles are reflected in the Web UI in under 1 second.</li>
+</ul>
+<h2 id="assumptions">Assumptions</h2>
+<ul>
+<li>[Assumption about environment]: The user has local file system write permissions.</li>
+<li>[Assumption about timezones]: All reminders are stored and handled in the system's local timezone.</li>
+<li>[Assumption about storage]: Data is stored in a single <code>tasks.json</code> file by default.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

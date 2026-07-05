@@ -1,0 +1,1363 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lista de tarefas para a implementação das Funcionalidades Core do TODO List">
+      
+      
+      
+        <link rel="canonical" href="https://RafaelDeps.github.io/todo_const/pt/project/001-todo-list-core/tasks/">
+      
+      
+        <link rel="prev" href="../plan/">
+      
+      
+      
+        
+          <link rel="alternate" href="../../../../project/001-todo-list-core/tasks/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="pt">
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Tarefas - todo-const Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tarefas-funcionalidades-core-do-todo-list" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../../" title="todo-const Documentation" class="md-header__button md-logo" aria-label="todo-const Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            todo-const Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tarefas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Selecione o idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../../project/001-todo-list-core/tasks/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../" title="todo-const Documentation" class="md-nav__button md-logo" aria-label="todo-const Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    todo-const Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../constitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constituição do Projeto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../speckit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metodologia SpecKit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcionalidades Core (001)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Funcionalidades Core (001)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Especificação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plano
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tarefas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tarefas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#formato-id-p-story-descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formato: [ID] [P?] [Story] Descrição
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-1-configuracao-infraestrutura-compartilhada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1: Configuração (Infraestrutura Compartilhada)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-2-fundamental-pre-requisitos-bloqueadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2: Fundamental (Pré-requisitos Bloqueadores)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-3-historia-de-usuario-1-gerenciamento-de-tarefas-prioridade-p1-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 3: História de Usuário 1 - Gerenciamento de Tarefas (Prioridade: P1) 🎯 MVP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 3: História de Usuário 1 - Gerenciamento de Tarefas (Prioridade: P1) 🎯 MVP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testes-para-a-historia-de-usuario-1-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testes para a História de Usuário 1 (TDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacao-para-a-historia-de-usuario-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementação para a História de Usuário 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-4-historia-de-usuario-2-lembretes-de-tarefa-prioridade-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 4: História de Usuário 2 - Lembretes de Tarefa (Prioridade: P2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 4: História de Usuário 2 - Lembretes de Tarefa (Prioridade: P2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testes-para-a-historia-de-usuario-2-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testes para a História de Usuário 2 (TDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacao-para-a-historia-de-usuario-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementação para a História de Usuário 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-5-historia-de-usuario-3-importacaoexportacao-de-dados-prioridade-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 5: História de Usuário 3 - Importação/Exportação de Dados (Prioridade: P3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 5: História de Usuário 3 - Importação/Exportação de Dados (Prioridade: P3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testes-para-a-historia-de-usuario-3-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testes para a História de Usuário 3 (TDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacao-para-a-historia-de-usuario-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementação para a História de Usuário 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-n-polimento-e-preocupacoes-transversais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase N: Polimento e Preocupações Transversais
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencias-e-ordem-de-execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências e Ordem de Execução
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dependências e Ordem de Execução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependencias-de-fase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências de Fase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencias-de-historia-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências de História de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dentro-de-cada-historia-de-usuario-estilo-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dentro de cada História de Usuário (Estilo TDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-de-execucao-paralela" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplos de Execução Paralela
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemplos de Execução Paralela">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-e-fundacao-paralelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuração e Fundação Paralelas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-e-view-paralelos-fundamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model e View Paralelos (Fundamental)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estratégia de Implementação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estratégia de Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mvp-primeiro-apenas-historia-de-usuario-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MVP Primeiro (Apenas História de Usuário 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrega-incremental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrega Incremental
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#formato-id-p-story-descricao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formato: [ID] [P?] [Story] Descrição
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-1-configuracao-infraestrutura-compartilhada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1: Configuração (Infraestrutura Compartilhada)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-2-fundamental-pre-requisitos-bloqueadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2: Fundamental (Pré-requisitos Bloqueadores)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-3-historia-de-usuario-1-gerenciamento-de-tarefas-prioridade-p1-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 3: História de Usuário 1 - Gerenciamento de Tarefas (Prioridade: P1) 🎯 MVP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 3: História de Usuário 1 - Gerenciamento de Tarefas (Prioridade: P1) 🎯 MVP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testes-para-a-historia-de-usuario-1-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testes para a História de Usuário 1 (TDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacao-para-a-historia-de-usuario-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementação para a História de Usuário 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-4-historia-de-usuario-2-lembretes-de-tarefa-prioridade-p2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 4: História de Usuário 2 - Lembretes de Tarefa (Prioridade: P2)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 4: História de Usuário 2 - Lembretes de Tarefa (Prioridade: P2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testes-para-a-historia-de-usuario-2-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testes para a História de Usuário 2 (TDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacao-para-a-historia-de-usuario-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementação para a História de Usuário 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-5-historia-de-usuario-3-importacaoexportacao-de-dados-prioridade-p3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 5: História de Usuário 3 - Importação/Exportação de Dados (Prioridade: P3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 5: História de Usuário 3 - Importação/Exportação de Dados (Prioridade: P3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testes-para-a-historia-de-usuario-3-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testes para a História de Usuário 3 (TDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacao-para-a-historia-de-usuario-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementação para a História de Usuário 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-n-polimento-e-preocupacoes-transversais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase N: Polimento e Preocupações Transversais
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencias-e-ordem-de-execucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências e Ordem de Execução
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dependências e Ordem de Execução">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dependencias-de-fase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências de Fase
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dependencias-de-historia-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependências de História de Usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dentro-de-cada-historia-de-usuario-estilo-tdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dentro de cada História de Usuário (Estilo TDD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-de-execucao-paralela" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplos de Execução Paralela
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemplos de Execução Paralela">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-e-fundacao-paralelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuração e Fundação Paralelas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-e-view-paralelos-fundamental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model e View Paralelos (Fundamental)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-implementacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estratégia de Implementação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estratégia de Implementação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mvp-primeiro-apenas-historia-de-usuario-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MVP Primeiro (Apenas História de Usuário 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrega-incremental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrega Incremental
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tarefas-funcionalidades-core-do-todo-list">Tarefas: Funcionalidades Core do TODO List</h1>
+<p><strong>Entrada</strong>: Documentos de design de <code>/specs/001-todo-list-core/</code>
+<strong>Pré-requisitos</strong>: plan.md (obrigatório), spec.md (obrigatório), research.md, data-model.md, contracts/</p>
+<p><strong>Testes</strong>: Abordagem TDD solicitada. Testes são obrigatórios para cada área funcional.</p>
+<p><strong>Organização</strong>: As tarefas são agrupadas por história de usuário para permitir a implementação e os testes independentes de cada história.</p>
+<h2 id="formato-id-p-story-descricao">Formato: <code>[ID] [P?] [Story] Descrição</code></h2>
+<ul>
+<li><strong>[P]</strong>: Pode rodar em paralelo (arquivos diferentes, sem dependências)</li>
+<li><strong>[Story]</strong>: A qual história de usuário esta tarefa pertence (ex: US1, US2, US3)</li>
+</ul>
+<hr />
+<h2 id="fase-1-configuracao-infraestrutura-compartilhada">Fase 1: Configuração (Infraestrutura Compartilhada)</h2>
+<p><strong>Propósito</strong>: Inicialização do projeto e estrutura básica</p>
+<ul>
+<li>[x] T001 Criar estrutura do projeto (src/, tests/, templates/, static/, utils/) conforme o plano de implementação</li>
+<li>[x] T002 Inicializar projeto Python (venv, requirements.txt com Flask, pytest, mypy, flake8)</li>
+<li>[x] T003 [P] Configurar Flake8/Black e Mypy para aplicação de PEP 8 e Type Hints</li>
+<li>[x] T004 [P] Configurar pytest em tests/conftest.py com fixture da app Flask</li>
+</ul>
+<hr />
+<h2 id="fase-2-fundamental-pre-requisitos-bloqueadores">Fase 2: Fundamental (Pré-requisitos Bloqueadores)</h2>
+<p><strong>Propósito</strong>: Infraestrutura core que DEVE estar completa antes que QUALQUER história de usuário possa ser implementada</p>
+<p><strong>⚠️ CRÍTICO</strong>: Nenhum trabalho de história de usuário pode começar até que esta fase esteja concluída</p>
+<ul>
+<li>[x] T005 [P] Criar layout CSS base em src/static/style.css</li>
+<li>[x] T006 [P] Criar template Jinja2 base em src/templates/base.html</li>
+<li>[x] T007 [P] Implementar utilitários auxiliares em src/utils/helpers.py (geração de UUID, formatação ISO)</li>
+<li>[x] T008 [P] Escrever testes unitários para resiliência de I/O JSON em tests/unit/test_task_model.py</li>
+<li>[x] T009 Implementar Model de Tarefa com I/O JSON atômico e Resiliência em src/models/task.py (depende de T008)</li>
+<li>[x] T010 [P] Configurar tratamento de erros centralizado (mensagens flashed) em src/app.py</li>
+</ul>
+<p><strong>Ponto de Verificação</strong>: Fundação pronta - a implementação das histórias de usuário pode agora começar em paralelo</p>
+<hr />
+<h2 id="fase-3-historia-de-usuario-1-gerenciamento-de-tarefas-prioridade-p1-mvp">Fase 3: História de Usuário 1 - Gerenciamento de Tarefas (Prioridade: P1) 🎯 MVP</h2>
+<p><strong>Objetivo</strong>: Operações CRUD para tarefas (Título/Descrição/Status)</p>
+<p><strong>Teste Independente</strong>: Criar, Visualizar, Atualizar, Excluir uma tarefa através da interface Web e verificar o armazenamento JSON.</p>
+<h3 id="testes-para-a-historia-de-usuario-1-tdd">Testes para a História de Usuário 1 (TDD)</h3>
+<ul>
+<li>[x] T011 [P] [US1] Escrever testes unitários para validação da entidade Task em tests/unit/test_task_model.py</li>
+<li>[x] T012 [P] [US1] Escrever testes de integração para rotas CRUD (/, /tasks/add, /update, /toggle, /delete) em tests/integration/test_crud.py</li>
+</ul>
+<h3 id="implementacao-para-a-historia-de-usuario-1">Implementação para a História de Usuário 1</h3>
+<ul>
+<li>[x] T013 [P] [US1] Aprimorar o model Task com campos de validação e status em src/models/task.py</li>
+<li>[x] T014 [US1] Implementar rota do Painel Principal (GET /) em src/app.py</li>
+<li>[x] T015 [US1] Criar template Index com lista de tarefas e formulário de adição em src/templates/index.html</li>
+<li>[x] T016 [US1] Implementar rota de Criar tarefa (POST /tasks/add) em src/app.py</li>
+<li>[x] T017 [US1] Implementar rota de Alternar status (POST /tasks/<id>/toggle) em src/app.py</li>
+<li>[x] T018 [US1] Implementar rota de Atualizar tarefa (POST /tasks/<id>/update) em src/app.py</li>
+<li>[x] T019 [US1] Implementar rota de Excluir tarefa (POST /tasks/<id>/delete) em src/app.py</li>
+</ul>
+<p><strong>Ponto de Verificação</strong>: Neste ponto, a História de Usuário 1 está totalmente funcional e testável de forma independente</p>
+<hr />
+<h2 id="fase-4-historia-de-usuario-2-lembretes-de-tarefa-prioridade-p2">Fase 4: História de Usuário 2 - Lembretes de Tarefa (Prioridade: P2)</h2>
+<p><strong>Objetivo</strong>: Sistema de lembretes por data/hora</p>
+<p><strong>Teste Independente</strong>: Definir um lembrete para uma tarefa e verificar se ele é exibido e aciona uma notificação visual na interface Web.</p>
+<h3 id="testes-para-a-historia-de-usuario-2-tdd">Testes para a História de Usuário 2 (TDD)</h3>
+<ul>
+<li>[x] T020 [P] [US2] Escrever testes unitários para validação de data de lembrete em tests/unit/test_task_model.py</li>
+<li>[x] T021 [P] [US2] Escrever testes de integração para exibição de lembretes em tests/integration/test_reminders.py</li>
+</ul>
+<h3 id="implementacao-para-a-historia-de-usuario-2">Implementação para a História de Usuário 2</h3>
+<ul>
+<li>[x] T022 [P] [US2] Atualizar model Task para lidar com o campo reminder_at em src/models/task.py</li>
+<li>[x] T023 [US2] Atualizar template Index para mostrar campos de lembrete e exibição em src/templates/index.html</li>
+<li>[x] T024 [US2] Atualizar rotas de Criar/Atualizar em src/app.py para lidar com reminder_at</li>
+<li>[x] T025 [US2] Implementar lógica de notificação visual In-App (JavaScript) em src/templates/base.html</li>
+</ul>
+<p><strong>Ponto de Verificação</strong>: Neste ponto, as Histórias de Usuário 1 E 2 estão funcionais de forma independente</p>
+<hr />
+<h2 id="fase-5-historia-de-usuario-3-importacaoexportacao-de-dados-prioridade-p3">Fase 5: História de Usuário 3 - Importação/Exportação de Dados (Prioridade: P3)</h2>
+<p><strong>Objetivo</strong>: Importar/Exportar tarefas de/para arquivos JSON</p>
+<p><strong>Teste Independente</strong>: Exportar tarefas para um arquivo, limpar os dados e importar o arquivo de volta escolhendo "Substituir" ou "Mesclagem Inteligente".</p>
+<h3 id="testes-para-a-historia-de-usuario-3-tdd">Testes para a História de Usuário 3 (TDD)</h3>
+<ul>
+<li>[x] T026 [P] [US3] Escrever testes unitários para a lógica de Mesclagem Inteligente em tests/unit/test_task_model.py</li>
+<li>[x] T027 [P] [US3] Escrever testes de integração para rotas de Exportação/Importação em tests/integration/test_portability.py</li>
+</ul>
+<h3 id="implementacao-para-a-historia-de-usuario-3">Implementação para a História de Usuário 3</h3>
+<ul>
+<li>[x] T028 [P] [US3] Implementar lógica de Mesclagem Inteligente e Exportação no src/models/task.py</li>
+<li>[x] T029 [US3] Implementar rota de Exportação (GET /export) em src/app.py</li>
+<li>[x] T030 [US3] Criar template de Importação com upload de arquivo e seleção de modo em src/templates/import.html</li>
+<li>[x] T031 [US3] Implementar rota de Importação (POST /import) em src/app.py</li>
+</ul>
+<p><strong>Ponto de Verificação</strong>: Todas as histórias de usuário estão agora funcionalmente independentes</p>
+<hr />
+<h2 id="fase-n-polimento-e-preocupacoes-transversais">Fase N: Polimento e Preocupações Transversais</h2>
+<p><strong>Propósito</strong>: Refinamentos finais e verificações de qualidade</p>
+<ul>
+<li>[x] T032 [P] Linting PEP 8 final e validação de Type Hints em todos os arquivos</li>
+<li>[x] T033 [P] Atualizar quickstart.md com exemplos de uso finais</li>
+<li>[x] T034 Rodar suíte completa de testes (pytest) para garantir que não haja regressões</li>
+<li>[x] T035 Verificar tratamento de erros amigável para todos os cenários de falha de I/O</li>
+</ul>
+<hr />
+<h2 id="dependencias-e-ordem-de-execucao">Dependências e Ordem de Execução</h2>
+<h3 id="dependencias-de-fase">Dependências de Fase</h3>
+<ul>
+<li><strong>Configuração (Fase 1)</strong>: Sem dependências - pode começar imediatamente</li>
+<li><strong>Fundamental (Fase 2)</strong>: Depende da conclusão da Configuração - BLOQUEIA todas as histórias de usuário</li>
+<li><strong>Histórias de Usuário (Fase 3+)</strong>: Todas dependem da conclusão da fase Fundamental</li>
+<li>US1 (CRUD) é a base para US2 e US3</li>
+<li>US2 (Lembretes) e US3 (Portabilidade) podem rodar em paralelo uma vez que a US1 esteja estável</li>
+</ul>
+<h3 id="dependencias-de-historia-de-usuario">Dependências de História de Usuário</h3>
+<ul>
+<li><strong>História de Usuário 1 (P1)</strong>: Fundação para as outras histórias.</li>
+<li><strong>História de Usuário 2 (P2)</strong>: Estende os models e views da US1.</li>
+<li><strong>História de Usuário 3 (P3)</strong>: Opera nos models estabelecidos na US1.</li>
+</ul>
+<h3 id="dentro-de-cada-historia-de-usuario-estilo-tdd">Dentro de cada História de Usuário (Estilo TDD)</h3>
+<ol>
+<li>Escrever testes PRIMEIRO e garantir que falhem.</li>
+<li>Implementar a lógica de model/serviço.</li>
+<li>Implementar a lógica de controller/rota.</li>
+<li>Implementar a lógica de UI/template.</li>
+<li>Verificar se os testes passam.</li>
+</ol>
+<hr />
+<h2 id="exemplos-de-execucao-paralela">Exemplos de Execução Paralela</h2>
+<h3 id="configuracao-e-fundacao-paralelas">Configuração e Fundação Paralelas</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Desenvolvedor A: Configuração e Linting</span>
+Tarefa:<span class="w"> </span><span class="s2">&quot;T002 Inicializar projeto Python&quot;</span>
+Tarefa:<span class="w"> </span><span class="s2">&quot;T003 Configurar Flake8/Black e Mypy&quot;</span>
+
+<span class="c1"># Desenvolvedor B: Infraestrutura</span>
+Tarefa:<span class="w"> </span><span class="s2">&quot;T005 Criar layout CSS base&quot;</span>
+Tarefa:<span class="w"> </span><span class="s2">&quot;T006 Criar template Jinja2 base&quot;</span>
+</code></pre></div>
+<h3 id="model-e-view-paralelos-fundamental">Model e View Paralelos (Fundamental)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Execução paralela dentro da Fase 2:</span>
+Tarefa:<span class="w"> </span><span class="s2">&quot;T008 Escrever testes unitários para resiliência de I/O JSON&quot;</span><span class="w"> </span>-&gt;<span class="w"> </span><span class="s2">&quot;T009 Implementar Model de Tarefa&quot;</span>
+Tarefa:<span class="w"> </span><span class="s2">&quot;T007 Implementar utilitários auxiliares&quot;</span>
+Tarefa:<span class="w"> </span><span class="s2">&quot;T010 Configurar tratamento de erros centralizado&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="estrategia-de-implementacao">Estratégia de Implementação</h2>
+<h3 id="mvp-primeiro-apenas-historia-de-usuario-1">MVP Primeiro (Apenas História de Usuário 1)</h3>
+<ol>
+<li>Concluir Fase 1: Configuração</li>
+<li>Concluir Fase 2: Fundamental (CRÍTICO)</li>
+<li>Concluir Fase 3: História de Usuário 1 (CRUD)</li>
+<li><strong>PARAR e VALIDAR</strong>: Testar o CRUD independentemente via interface Web.</li>
+</ol>
+<h3 id="entrega-incremental">Entrega Incremental</h3>
+<ol>
+<li>Fundação pronta.</li>
+<li>Adicionar CRUD (MVP).</li>
+<li>Adicionar Lembretes.</li>
+<li>Adicionar Importação/Exportação.</li>
+<li>Cada história é entregue com seus próprios testes.</li>
+</ol>
+<hr />
+<h2 id="notas">Notas</h2>
+<ul>
+<li>TDD é rigorosamente aplicado: Testes (T008, T011, T012, T020, T021, T026, T027) DEVEM ser feitos antes da implementação.</li>
+<li>Marcadores [P] indicam tarefas sem dependências bloqueadoras dentro de sua fase.</li>
+<li>Os caminhos de arquivos são específicos para a estrutura de projeto solicitada.</li>
+<li>Os princípios de resiliência e UX (da Constituição) estão incorporados nas tarefas fundamentais e de histórias.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
